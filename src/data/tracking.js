@@ -1,2 +1,1 @@
-// Google Analytics Tracking ID
-export const TRACKING_ID = "";
+export const TRACKING_ID = "G-WC3KFCXVV8";
