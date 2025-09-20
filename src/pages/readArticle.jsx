@@ -2,6 +2,10 @@ import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import NavBar from "../components/common/navBar";
 import Footer from "../components/common/footer";
@@ -68,7 +72,50 @@ const ReadArticle = () => {
 							</div>
 
 							<div className="read-article-body">
-								<ArticleStyle>{article().body}</ArticleStyle>
+								<ArticleStyle>
+									{article().isMarkdown ? (
+										<ReactMarkdown
+											remarkPlugins={[remarkGfm]}
+											components={{
+												code({ node, inline, className, children, ...props }) {
+													const match = /language-(\w+)/.exec(className || '');
+													return !inline && match ? (
+														<SyntaxHighlighter
+															style={tomorrow}
+															language={match[1]}
+															PreTag="div"
+															{...props}
+														>
+															{String(children).replace(/\n$/, '')}
+														</SyntaxHighlighter>
+													) : (
+														<code className={className} {...props}>
+															{children}
+														</code>
+													);
+												},
+												img({ node, ...props }) {
+													return (
+														<img
+															{...props}
+															style={{
+																maxWidth: '100%',
+																height: 'auto',
+																display: 'block',
+																margin: '20px auto'
+															}}
+															alt={props.alt || ''}
+														/>
+													);
+												}
+											}}
+										>
+											{article().body}
+										</ReactMarkdown>
+									) : (
+										article().body
+									)}
+								</ArticleStyle>
 							</div>
 						</div>
 					</div>
