@@ -4,10 +4,9 @@ import { Helmet } from "react-helmet";
 import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-	faTwitter,
 	faGithub,
-	faStackOverflow,
-	faInstagram,
+	faLinkedin,
+	faMedium
 } from "@fortawesome/free-brands-svg-icons";
 
 import Footer from "../components/common/footer";
@@ -30,7 +29,28 @@ const Homepage = () => {
 
 
 	const currentSEO = SEO.find((item) => item.page === "home");
-
+	const parseDescriptionWithLinks = (text) => {
+		const parts = text.split(/(\[.*?\]\(.*?\))/g);
+		
+		return parts.map((part, index) => {
+			const match = part.match(/\[(.*?)\]\((.*?)\)/);
+			if (match) {
+				const [, linkText, linkUrl] = match;
+				return (
+					<a 
+						key={index}
+						href={linkUrl} 
+						target="_blank" 
+						rel="noopener noreferrer"
+						className="description-link"
+					>
+						{linkText}
+					</a>
+				);
+			}
+			return part;
+		});
+	};
 
 	return (
 		<React.Fragment>
@@ -44,7 +64,6 @@ const Homepage = () => {
 			</Helmet>
 
 			<div className="page-content">
-				<NavBar active="home" />
 				<div className="content-wrapper">
 
 					<div className="homepage-container">
@@ -54,9 +73,13 @@ const Homepage = () => {
 									{INFO.homepage.title}
 								</div>
 
-								<div className="subtitle homepage-subtitle">
-									{INFO.homepage.description}
-								</div>
+									<div className="subtitle homepage-subtitle">
+										{INFO.homepage.description.split('\n\n').map((paragraph, index) => (
+											<p key={index} className="homepage-paragraph">
+												{parseDescriptionWithLinks(paragraph)}
+											</p>
+										))}
+									</div>
 							</div>
 
 							<div className="homepage-first-area-right-side">
@@ -90,7 +113,17 @@ const Homepage = () => {
 								rel="noreferrer"
 							>
 								<FontAwesomeIcon
-									icon="fa-brands fa-linkedin-in"
+									icon={faLinkedin}
+									className="homepage-social-icon"
+								/>
+							</a>
+							<a
+								href={INFO.socials.medium}
+								target="_blank"
+								rel="noreferrer"
+							>
+								<FontAwesomeIcon
+									icon={faMedium}
 									className="homepage-social-icon"
 								/>
 							</a>
@@ -117,7 +150,6 @@ const Homepage = () => {
 						</div>
 
 						<div className="page-footer">
-							<Footer />
 						</div>
 					</div>
 				</div>

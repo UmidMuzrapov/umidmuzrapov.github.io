@@ -22,6 +22,8 @@
 
 .homepage-subtitle {
 	width: 85% !important;
+	white-space: pre-line;
+	line-height: 1.6;
 }
 
 .homepage-first-area-right-side {
@@ -76,6 +78,22 @@
 	padding-top: 30px;
 	margin-left: -30px;
 }
+
+.description-link {
+	color: #007bff;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.description-link:hover {
+	color: #0056b3;
+	text-decoration: underline;
+}
+
+.homepage-paragraph {
+	margin-bottom: 1rem;
+}
+
 
 .homepage-article {
 	padding-bottom: 5px;

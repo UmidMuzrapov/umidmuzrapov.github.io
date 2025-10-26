@@ -9,16 +9,18 @@ const INFO = {
 	socials: {
 		github: "https://github.com/UmidMuzrapov",
 		linkedin: "https://www.linkedin.com/in/umidmuzrapov/",
+		medium: "https://medium.com/@master-of-java",
 	},
 
 	homepage: {
-		title: "Software engineer, and amateur mathematician.",
-		description:
-			"I am into software development, architecting scalable solutions, and writing concise code. Tough problems motivate me. Through college and work experience, I co-developed several software systems using diverse technologies like C#, Java, ASP.NET, AWS, Docker, GitHub, and relational databases.",
+		title: "Software Engineer and Technical Writer",
+		description: `I am Umid. I hold a BS in CS and Math from the University of Arizona and am pursuing a Master's in Computer Science from UIUC. I am a software engineer at AWS, where I work on a system for real-time WebRTC communication across devices.
+
+	My areas of expertise include concurrent programming, designing scalable data-intensive applications, real-time communication, and cloud computing. I have recently started writing Medium articles on various technical topics; you can check out [my blog here](https://medium.com/@master-of-java).`
 	},
 
 	about: {
-		title: "I’m Umid M. I live in Tucson and Sunnyvale, where I design the future.",
+		title: "I’m Umid M. I live in Sunnyvale, where I design the future.",
 		description:
 			"I am a Computer Science and Mathematics major at the University of Arizona. I have taken courses on software engineering, algorithms, database design and mathematical analysis. I work part-time as a software developer on campus, where I created the system to track chemical sprays across the campus and contributed to other critical projects. ",
 	},
