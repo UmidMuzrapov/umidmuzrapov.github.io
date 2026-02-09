@@ -13,10 +13,15 @@ const INFO = {
 	},
 
 	homepage: {
-		title: "Software Engineer and Technical Writer",
-		description: `I am Umid. I hold a BS in CS and Math from the University of Arizona and am pursuing a Master's in Computer Science from UIUC. I am a software engineer at AWS, where I work on a system for real-time WebRTC communication across devices.
+		title: "Backend Software Engineer",
+		description: `I build scalable and maintainable distributed systems.
 
-	My areas of expertise include concurrent programming, designing scalable data-intensive applications, real-time communication, and cloud computing. I have recently started writing Medium articles on various technical topics; you can check out [my blog here](https://medium.com/@master-of-java).`
+	My areas of expertise include concurrent programming, designing scalable data-intensive applications, real-time communication, and cloud computing. I have recently started writing Medium articles on various technical topics; you can check out [my blog here](https://medium.com/@master-of-java). 
+	
+	At AWS, I work on a system for real-time streaming and helped develop a cloud-based solution that supports multiple devices with limited resources. I previously interned twice at AWS, first building a scalable web application to isolate tenant resources for an IoT team, and later creating a high-performance workflow visualization tool. 
+	
+	I hold a Bachelor of Science in Mathematics and Computer Science and am pursuing a part-time professional Master’s at the University of Illinois Urbana-Champaign.
+	`
 	},
 
 	about: {
